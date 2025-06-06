@@ -29,4 +29,5 @@ public class EntityCliente {
     public String getTelefono() {
         return telefono;
     }
+    
 }

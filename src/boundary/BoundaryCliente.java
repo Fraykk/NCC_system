@@ -1,14 +1,17 @@
 package boundary;
 
 import entity.EntityPreventivo;
+import exception.DAOException;
+import exception.DBConnectionException;
 import database.PreventivoDAO;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class BoundaryCliente {
-    
-    public static void richiediPreventivo() {
+
+    /*
+    public static EntityPreventivo richiediPreventivo() {
         EntityPreventivo eP = null;
 
         Scanner scanner = new Scanner(System.in);
@@ -21,10 +24,13 @@ public class BoundaryCliente {
 
         eP = new EntityPreventivo("4", partenza, destinazione, data);
 
-        try{
+    
+        try {
             PreventivoDAO.inserisciPreventivo(eP);
-        }catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Errore");
         }
+        return eP;
     }
+    */
 }

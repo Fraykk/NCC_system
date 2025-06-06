@@ -1,5 +1,9 @@
 package entity;
 
+import exception.DAOException;
+import exception.DBConnectionException;
+import database.PreventivoDAO;
+
 public class EntityPreventivo {
     private String idPreventivo;
     private String partenza;
@@ -29,4 +33,7 @@ public class EntityPreventivo {
         return dataPrelievo;
     }
 
+    public void creaPreventivo() throws DAOException, DBConnectionException {
+        PreventivoDAO.inserisciPreventivo(this);
+    }
 }

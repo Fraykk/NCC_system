@@ -1,12 +1,13 @@
 package control;
 
 import java.util.Scanner;
-import boundary.BoundaryImpiegato;
-import boundary.BoundaryCliente;
+import entity.EntityPreventivo;
+import exception.*;
 
 public class GestioneNoleggio {
 
     private static GestioneNoleggio gN = null;
+
     public static void main() {
         Scanner scanner = new Scanner(System.in);
         int scelta = 0;
@@ -24,10 +25,28 @@ public class GestioneNoleggio {
             }
             switch (scelta) {
                 case 1:
-                    //BoundaryImpiegato.preparaPreventivo(email, costoDouble, data);
+                    // BoundaryImpiegato.preparaPreventivo(email, costoDouble, data);
                     break;
                 case 2:
-                    BoundaryCliente.richiediPreventivo();
+                    EntityPreventivo eP = null;
+
+                    System.out.print("Inserisci partenza: ");
+                    String partenza = scanner.nextLine();
+                    System.out.print("Inserisci destinazione: ");
+                    String destinazione = scanner.nextLine();
+                    System.out.print("Inserisci data: ");
+                    String data = scanner.nextLine();
+
+                    eP = new EntityPreventivo("4", partenza, destinazione, data);
+                    try {
+                        eP.creaPreventivo();
+                    } catch (DBConnectionException e) {
+                        System.out.println(e.getMessage());
+                    } catch (DAOException e) {
+                        System.out.println(e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Errore generico: " + e.getMessage());
+                    }
                     break;
                 case 3:
                     // assegnaDatiNoleggio();
