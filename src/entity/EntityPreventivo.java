@@ -1,21 +1,19 @@
 package entity;
 
 public class EntityPreventivo {
-    private int idPreventivo;
+    private String idPreventivo;
     private String partenza;
     private String destinazione;
     private String dataPrelievo;
-    private double costo;
 
-    public EntityPreventivo(int idPreventivo, String partenza, String destinazione, String dataPrelievo, double costo) {
+    public EntityPreventivo(String idPreventivo, String partenza, String destinazione, String dataPrelievo) {
         this.idPreventivo = idPreventivo;
         this.partenza = partenza;
         this.destinazione = destinazione;
         this.dataPrelievo = dataPrelievo;
-        this.costo = costo;
     }
 
-    public int getIdPreventivo() {
+    public String getIdPreventivo() {
         return idPreventivo;
     }
 
@@ -31,7 +29,4 @@ public class EntityPreventivo {
         return dataPrelievo;
     }
 
-    public double getCosto() {
-        return costo;
-    }
 }
