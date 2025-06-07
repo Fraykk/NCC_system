@@ -16,6 +16,7 @@ private static Connection conn = null;
             System.out.println("Connessione in corso...");
             // Usa la modalità server TCP di H2, assicurati che il database sia avviato in modalità server
             conn = DriverManager.getConnection("jdbc:h2:~/GestioneNoleggioDB.mv", "sa", "");
+            System.out.println("Connessione effettuata");
         }
         return conn;
     }

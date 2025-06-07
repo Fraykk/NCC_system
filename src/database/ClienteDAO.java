@@ -1,49 +1,50 @@
 package database;
 
 import entity.EntityCliente;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import exception.DAOException;
+import exception.DBConnectionException;
+import java.sql.*;
 
 public class ClienteDAO {
 
-    public List<EntityCliente> loadAll() {
-        List<EntityCliente> clienti = new ArrayList<>();
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
+    public static long inserisciCliente(EntityCliente c) throws DAOException, DBConnectionException {
+        long idGenerato = -1;
 
-        try {
-            connection = DBManager.getConnection();
-            String sql = "SELECT * FROM Cliente";
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sql);
+        try { 
+            Connection conn = DBManager.getConnection();
 
-            while (resultSet.next()) {
-                String nome = resultSet.getString("nome");
-                String cognome = resultSet.getString("cognome");
-                String email = resultSet.getString("email");
-                String telefono = resultSet.getString("telefono");
-                
-                EntityCliente cliente = new EntityCliente(nome, cognome, email, telefono);
-                clienti.add(cliente);
+            String query = "INSERT INTO CLIENTE (NOME, COGNOME, EMAIL, TELEFONO) VALUES (?, ?, ?, ?)";
+
+            try{
+                PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
+                stmt.setString(1, c.getNome());
+                stmt.setString(2, c.getCognome());
+                stmt.setString(3, c.getEmail());
+                stmt.setInt(4, c.getTelefono());
+
+                int affectedRows = stmt.executeUpdate();
+
+                if (affectedRows > 0) {
+                    try (ResultSet rs = stmt.getGeneratedKeys()) {
+                        if (rs.next()) {
+                            idGenerato = rs.getLong(1); // Recupera il primo (e unico) ID generato
+                            System.out.println("Cliente aggiunto al database con ID: " + idGenerato);
+                        }
+                    } catch(Exception e){
+                        System.out.println("Errore nel trovare ID");
+                    }
+                } else {
+                    System.out.println("Nessun cliente aggiunto (0 righe affette).");
+                }
+            }catch(SQLException e) {
+                throw new DAOException("Errore aggiunta cliente al database");
+            } finally {
+                DBManager.closeConnection();
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (resultSet != null) resultSet.close();
-                if (statement != null) statement.close();
-                // La connessione non viene chiusa qui per permettere riutilizzo
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return clienti;
+        }catch(SQLException e) {
+			throw new DBConnectionException("Errore connessione database");
+		}
+        return idGenerato;
     }
 }

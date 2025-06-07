@@ -5,13 +5,15 @@ public class EntityCliente {
     private String nome;
     private String cognome;
     private String email;
-    private String telefono;
+    private int telefono;
+    private long id;
 
-    public EntityCliente(String nome, String cognome, String email, String telefono) {
+    public EntityCliente(String nome, String cognome, String email, int telefono) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.telefono = telefono;
+        this.id = -1;
     }
 
     public String getNome() {
@@ -26,8 +28,16 @@ public class EntityCliente {
         return email;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
+    }
+
+    public long getId(){
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
     }
     
 }

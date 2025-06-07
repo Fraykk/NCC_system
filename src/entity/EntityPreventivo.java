@@ -1,24 +1,23 @@
 package entity;
 
-import exception.DAOException;
-import exception.DBConnectionException;
-import database.PreventivoDAO;
+import java.sql.Date;
+import java.sql.Time;
 
 public class EntityPreventivo {
-    private String idPreventivo;
+    private long id;
     private String partenza;
     private String destinazione;
-    private String dataPrelievo;
+    private Date data;
+    private Time ora;
+    private EntityCliente cliente;
 
-    public EntityPreventivo(String idPreventivo, String partenza, String destinazione, String dataPrelievo) {
-        this.idPreventivo = idPreventivo;
+    public EntityPreventivo(String partenza, String destinazione, Date data, Time ora, EntityCliente cliente) {
+        this.id = -1;
         this.partenza = partenza;
         this.destinazione = destinazione;
-        this.dataPrelievo = dataPrelievo;
-    }
-
-    public String getIdPreventivo() {
-        return idPreventivo;
+        this.data = data;
+        this.ora = ora;
+        this.cliente = cliente;
     }
 
     public String getPartenza() {
@@ -29,11 +28,23 @@ public class EntityPreventivo {
         return destinazione;
     }
 
-    public String getDataPrelievo() {
-        return dataPrelievo;
+    public Date getDataPrelievo() {
+        return data;
     }
 
-    public void creaPreventivo() throws DAOException, DBConnectionException {
-        PreventivoDAO.inserisciPreventivo(this);
+    public Time getOra() {
+        return ora;
+    }
+
+    public EntityCliente getCliente() {
+        return cliente;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
