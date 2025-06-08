@@ -6,27 +6,37 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+import entity.EntityPreventivo;
+import exception.DAOException;
+import exception.DBConnectionException;
+
 public class AutovetturaDAO {
-     public static boolean vettureDisponibili(LocalDateTime dataOra) throws SQLException {
-        Connection conn = DBManager.getConnection();
-        String query = """
-            SELECT COUNT(*) AS disponibili
-            FROM Autovettura a
-            WHERE a.targa NOT IN (
-                SELECT n.targaVettura
-                FROM Noleggio n
-                WHERE n.dataOra = ?
-            )
-        """;
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setTimestamp(1, Timestamp.valueOf(dataOra));
-        ResultSet rs = stmt.executeQuery();
+    public static boolean isDisponibile() throws DAOException, DBConnectionException{
         boolean disponibile = false;
-        if (rs.next()) {
-            disponibile = rs.getInt("disponibili") > 0;
-        }
-        rs.close();
-        stmt.close();
+
+        try { 
+            Connection conn = DBManager.getConnection();
+
+            String query = "SELECT EXISTS (SELECT 1 FROM Autovettura WHERE disponibile = TRUE) AS is_available;";
+
+            try{
+                PreparedStatement stmt = conn.prepareStatement(query);
+
+                ResultSet result = stmt.executeQuery();
+
+                if(result.next()){
+                    disponibile = result.getBoolean("is_available");
+                }
+
+
+            }catch(SQLException e) {
+                throw new DAOException("Errore aggiunta preventivo al database");
+            } finally {
+                DBManager.closeConnection();
+            }
+        }catch(SQLException e) {
+			throw new DBConnectionException("Errore connessione database");
+		}
         return disponibile;
     }
 }

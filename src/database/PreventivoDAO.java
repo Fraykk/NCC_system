@@ -4,6 +4,8 @@ import entity.EntityPreventivo;
 import exception.DAOException;
 import exception.DBConnectionException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PreventivoDAO {
 
@@ -19,7 +21,7 @@ public class PreventivoDAO {
 
                 stmt.setString(1, p.getPartenza());
                 stmt.setString(2, p.getDestinazione());
-                stmt.setDate(3, p.getDataPrelievo());
+                stmt.setDate(3, p.getData());
                 stmt.setTime(4, p.getOra());
                 stmt.setLong(5, p.getCliente().getId());
 
@@ -46,5 +48,62 @@ public class PreventivoDAO {
 			throw new DBConnectionException("Errore connessione database");
 		}
         return idGenerato;
+    }
+
+    public static List<EntityPreventivo> leggiPreventivi() throws DAOException, DBConnectionException {
+        List<EntityPreventivo> preventivi = new ArrayList<>();
+        EntityPreventivo eP;
+
+        try { 
+            Connection conn = DBManager.getConnection();
+
+            String query = "SELECT * FROM PREVENTIVO";
+
+            try{
+                PreparedStatement stmt = conn.prepareStatement(query);
+
+                ResultSet result = stmt.executeQuery();
+
+                if(result.next()) {
+                    eP = new EntityPreventivo(result.getString(2), result.getString(3), result.getDate(4), result.getTime(5), null);
+                    eP.setId(result.getLong(1));
+                    preventivi.add(eP);
+                }
+
+            }catch(SQLException e) {
+                throw new DAOException("Errore aggiunta preventivo al database");
+            } finally {
+                DBManager.closeConnection();
+            }
+        }catch(SQLException e) {
+			throw new DBConnectionException("Errore connessione database");
+		}
+        return preventivi;
+    }
+
+    public static void inserisciCosto(long id, int costo) throws DAOException, DBConnectionException{
+        try { 
+            Connection conn = DBManager.getConnection();
+
+            String query = "UPDATE PREVENTIVO SET COSTO = ? WHERE IDPREVENTIVO = ?";
+
+            try{
+                PreparedStatement stmt = conn.prepareStatement(query);
+
+                stmt.setInt(1, costo);
+                stmt.setLong(2, id);
+
+                stmt.executeUpdate();
+
+                System.out.println("Costo aggiunto correttamente");
+                
+            }catch(SQLException e) {
+                throw new DAOException("Errore aggiunta preventivo al database");
+            } finally {
+                DBManager.closeConnection();
+            }
+        }catch(SQLException e) {
+			throw new DBConnectionException("Errore connessione database");
+		}
     }
 }
