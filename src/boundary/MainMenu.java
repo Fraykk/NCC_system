@@ -3,9 +3,7 @@ package boundary;
 import java.util.Scanner;
 
 public class MainMenu {
-	// gestico l'istanza dello scanner direttamente nel main
-	public static Scanner scanner = new Scanner(System.in);
-
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         int scelta;
         boolean running = true;
@@ -39,12 +37,6 @@ public class MainMenu {
             } catch (NumberFormatException e) {
                 System.out.println("Input non valido. Per favore, inserisci un numero intero.");
             }
-        }
-
-        // gestico la chiusura dello scanner prima di chiudere l'app
-        if (scanner != null) {
-            scanner.close();
-            System.out.println("Risorse liberate: Scanner chiuso.");
         }
     }
 }

@@ -6,8 +6,12 @@ import java.sql.Date;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Scanner;
 
 public class BoundaryCliente {
+    // definisco lo scanner proprio della classe BoundaryCliente
+    private static Scanner scanner = new Scanner(System.in);
+
     // definisco delle costanti per le opzioni del menu
     private static final int OPTION_RICHIEDI_PREVENTIVO = 1;
     private static final int OPTION_ACCESS = 2;
@@ -23,7 +27,7 @@ public class BoundaryCliente {
             System.out.print("Scegli un'opzione (1-" + OPTION_EXIT + "): ");
             
             try {
-                scelta = Integer.parseInt(MainMenu.scanner.nextLine());
+                scelta = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Input non valido. Riprova.");
                 continue;
@@ -56,11 +60,12 @@ public class BoundaryCliente {
             int telefono = 0;        
             boolean inputValido = false;
             GestioneNoleggio noleggio = GestioneNoleggio.getInstance();
+            final int CIFRE_TELEFONO = 10;
 
             while (!inputValido) {
                 System.out.print("Inserisci partenza: ");
-                partenza = MainMenu.scanner.nextLine();
-                if (partenza.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$")) {
+                partenza = scanner.nextLine();
+                if (partenza.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$") && partenza.length() < 100) {
                     inputValido = true;
                 } else {
                     System.out.println("La partenza non può contenere numeri o caratteri speciali. Riprova.");
@@ -70,8 +75,8 @@ public class BoundaryCliente {
             inputValido = false;
             while (!inputValido) {
                 System.out.print("Inserisci destinazione: ");
-                destinazione = MainMenu.scanner.nextLine();
-                if (destinazione.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$")) {
+                destinazione = scanner.nextLine();
+                if (destinazione.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$") && destinazione.length() < 100) {
                     inputValido = true;
                 } else {
                     System.out.println("La destinazione non può contenere numeri o caratteri speciali. Riprova.");
@@ -82,16 +87,16 @@ public class BoundaryCliente {
             while (!inputValido) {
                 try {
                     System.out.println("Inserisci la data (aaaa-MM-gg)");
-                    String dataTemp = MainMenu.scanner.nextLine();
+                    String dataTemp = scanner.nextLine();
                     data = Date.valueOf(dataTemp);
 
                     System.out.println("Inserisci l'orario (HH:mm)");
-                    String orarioTemp = MainMenu.scanner.nextLine();
+                    String orarioTemp = scanner.nextLine();
                     orario = new Time(new SimpleDateFormat("HH:mm").parse(orarioTemp).getTime());
                     
                     inputValido = true;
                 } catch (IllegalArgumentException | ParseException iE) {
-                    System.out.println("Errore nell'acquisizione della data, riprovare..");
+                    System.out.println("Errore nell'acquisizione della data o dell'ora, riprovare..");
                     System.out.println();
                 }
             }
@@ -102,9 +107,9 @@ public class BoundaryCliente {
             while (!inputValido) {
                 System.out.println("Inserisci nome");
 
-                nome = MainMenu.scanner.nextLine();
+                nome = scanner.nextLine();
 
-                if (nome.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$")) {
+                if (nome.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$") && nome.length() < 100) {
                     inputValido = true;
                 } else {
                     System.out.println("Il nome non può contenere numeri o caratteri speciali. Riprova.");
@@ -113,11 +118,11 @@ public class BoundaryCliente {
 
             inputValido = false;
             while (!inputValido) {
-                System.out.println("Inserisci nome");
+                System.out.println("Inserisci cognome");
 
-                cognome = MainMenu.scanner.nextLine();
+                cognome = scanner.nextLine();
 
-                if (cognome.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$")) {
+                if (cognome.matches("^[a-zA-ZàèéìòùÀÈÉÌÒÙ' ]+$") && cognome.length() < 100) {
                     inputValido = true;
                 } else {
                     System.out.println("Il cognome non può contenere numeri o caratteri speciali. Riprova.");
@@ -128,7 +133,7 @@ public class BoundaryCliente {
             while (!inputValido) {
                 System.out.println("Inserisci la email");
 
-                email = MainMenu.scanner.nextLine();
+                email = scanner.nextLine();
 
                 if (email.contains("@") && email.contains(".")) {
                     inputValido = true;
@@ -140,15 +145,23 @@ public class BoundaryCliente {
             inputValido = false;
             while (!inputValido) {
                 try {
-                    System.out.println("Inserisci il numero di telefono");
-                    telefono = Integer.parseInt(MainMenu.scanner.nextLine());
-                    inputValido = true;
+                    System.out.println("Inserisci il numero di telefono (10 cifre):");
+                    String input = scanner.nextLine(); 
+
+                    if (input.length() != CIFRE_TELEFONO) { 
+                        telefono = Integer.parseInt(input); 
+                        inputValido = true;
+                        System.out.println("Numero di telefono inserito: " + telefono);
+                    } else {
+                        System.out.println("Errore: Inserire esattamente 10 cifre numeriche.");
+                        System.out.println();
+                    }
+                    
                 } catch (NumberFormatException nE) {
-                    System.out.println("Errore, inserire un numero valido");
+                    System.out.println("Errore: Inserire un numero valido.");
                     System.out.println();
                 }
             }
-
             noleggio.aggiungiPreventivo(partenza, destinazione, data, orario, nome, cognome, email, telefono);
         } catch (OperationException ope){
             System.out.println(ope);

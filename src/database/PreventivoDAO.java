@@ -64,7 +64,7 @@ public class PreventivoDAO {
 
                 ResultSet result = stmt.executeQuery();
 
-                if(result.next()) {
+                while(result.next()) {
                     eP = new EntityPreventivo(result.getString(2), result.getString(3), result.getDate(4), result.getTime(5), null);
                     eP.setId(result.getLong(1));
                     preventivi.add(eP);

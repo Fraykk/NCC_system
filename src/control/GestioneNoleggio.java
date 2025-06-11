@@ -2,8 +2,13 @@ package control;
 
 import database.AutovetturaDAO;
 import database.ClienteDAO;
+import database.ConducenteDAO;
+import database.PrenotazioneDAO;
 import database.PreventivoDAO;
+import entity.EntityAutovettura;
 import entity.EntityCliente;
+import entity.EntityConducente;
+import entity.EntityPrenotazione;
 import entity.EntityPreventivo;
 import exception.DAOException;
 import exception.DBConnectionException;
@@ -59,7 +64,49 @@ public class GestioneNoleggio {
         return list;
     }
 
-    public boolean autovetturaDisponibile() throws OperationException {
+    public List<EntityPrenotazione> ottieniPrenotazioni() throws OperationException{
+        List<EntityPrenotazione> list = null;
+
+        try {
+            list = PrenotazioneDAO.leggiPrenotazioni();
+        } catch(DBConnectionException dbEx) {			
+			throw new OperationException("\nRiscontrato problema interno applicazione!\n");
+		}catch(DAOException ex) {
+			throw new OperationException("Ops, qualcosa e' andato storto..");
+		}
+
+        return list;
+    }
+
+    public List<EntityAutovettura> ottieniAutovetture() throws OperationException {
+        List<EntityAutovettura> eA = null;
+
+        try {
+            eA = AutovetturaDAO.getAutovettureDisponibili();
+        } catch(DBConnectionException dbEx) {			
+			throw new OperationException("\nRiscontrato problema interno applicazione!\n");
+		}catch(DAOException ex) {
+			throw new OperationException("Ops, qualcosa e' andato storto..");
+		}
+
+        return eA;
+    }
+
+    public List<EntityConducente> ottieniConducenti() throws OperationException{
+        List<EntityConducente> eC = null;
+
+        try {
+            eC = ConducenteDAO.getConducenti();
+        } catch(DBConnectionException dbEx) {			
+			throw new OperationException("\nRiscontrato problema interno applicazione!\n");
+		}catch(DAOException ex) {
+			throw new OperationException("Ops, qualcosa e' andato storto..");
+		}
+
+        return eC;
+    }
+
+    public boolean isAutovetturaDisponibile() throws OperationException {
         boolean disponibile = false;
 
         try {
@@ -99,5 +146,25 @@ public class GestioneNoleggio {
 
     public void inviaAlternative(){
         System.out.println("Invio alternative via mail");
+    }
+
+    public void associaConducente(long idP, long idC) throws OperationException{
+        try{
+            PrenotazioneDAO.setConducente(idP, idC);
+        }catch(DBConnectionException dbEx) {			
+			throw new OperationException("\nRiscontrato problema interno applicazione!\n");
+		}catch(DAOException ex) {
+			throw new OperationException("Ops, qualcosa e' andato storto..");
+		}
+    }
+
+    public void associaAutovettura(long idP, String targa) throws OperationException{
+        try{
+            PrenotazioneDAO.setAutovettura(idP, targa);
+        }catch(DBConnectionException dbEx) {			
+			throw new OperationException("\nRiscontrato problema interno applicazione!\n");
+		}catch(DAOException ex) {
+			throw new OperationException("Ops, qualcosa e' andato storto..");
+		}
     }
 }

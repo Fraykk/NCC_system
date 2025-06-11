@@ -1,6 +1,6 @@
 package database;
 
-import entity.EntityAutovettura;
+import entity.EntityConducente;
 import exception.DAOException;
 import exception.DBConnectionException;
 import java.sql.Connection;
@@ -10,14 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AutovetturaDAO {
+public class ConducenteDAO {
     public static boolean isDisponibile() throws DAOException, DBConnectionException{
         boolean disponibile = false;
 
         try { 
             Connection conn = DBManager.getConnection();
 
-            String query = "SELECT EXISTS (SELECT 1 FROM Autovettura WHERE disponibile = TRUE) AS is_available;";
+            String query = "SELECT EXISTS (SELECT 1 FROM CONDUCENTE WHERE disponibile = TRUE) AS is_available;";
 
             try{
                 PreparedStatement stmt = conn.prepareStatement(query);
@@ -40,14 +40,14 @@ public class AutovetturaDAO {
         return disponibile;
     }
 
-    public static List<EntityAutovettura> getAutovettureDisponibili() throws DAOException, DBConnectionException{
-        List<EntityAutovettura> autovetture = new ArrayList<>();
-        EntityAutovettura eA;
+    public static List<EntityConducente> getConducenti() throws DAOException, DBConnectionException{
+        List<EntityConducente> conducente = new ArrayList<>();
+        EntityConducente eC;
 
         try { 
             Connection conn = DBManager.getConnection();
 
-            String query = "SELECT TARGA, MODELLO, POSTI, ANNOIMMATRICOLAZIONE, SCADENZAASSICURAZIONE FROM AUTOVETTURA WHERE DISPONIBILE = TRUE";
+            String query = "SELECT * FROM CONDUCENTE WHERE DISPONIBILE = TRUE";
 
             try{
                 PreparedStatement stmt = conn.prepareStatement(query);
@@ -55,8 +55,8 @@ public class AutovetturaDAO {
                 ResultSet result = stmt.executeQuery();
 
                 while(result.next()) {
-                    eA = new EntityAutovettura(result.getString(1), result.getString(2), result.getInt(3), result.getInt(4), result.getDate(5), null);
-                    autovetture.add(eA);
+                    eC = new EntityConducente(result.getLong(1), result.getString(2), result.getString(3), null);
+                    conducente.add(eC);
                 }
 
             }catch(SQLException e) {
@@ -67,6 +67,6 @@ public class AutovetturaDAO {
         }catch(SQLException e) {
 			throw new DBConnectionException("Errore connessione database");
 		}
-        return autovetture;
+        return conducente;
     }
 }

@@ -1,16 +1,26 @@
 package entity;
 
 public class EntityConducente {
+    private long id;
     private String nome;
     private String cognome;
     private EntityPatente entityPatente;
 
-    public EntityConducente(String nome, String cognome, EntityPatente entityPatente) {
+    public EntityConducente(long id, String nome, String cognome, EntityPatente entityPatente) {
+        this.id = id;
         this.nome = nome;
         this.cognome = cognome;
         this.entityPatente = entityPatente;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }

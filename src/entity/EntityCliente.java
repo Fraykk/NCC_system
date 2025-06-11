@@ -2,11 +2,13 @@ package entity;
 
 public class EntityCliente {
     
-    private String nome;
-    private String cognome;
-    private String email;
-    private int telefono;
+    private final String nome;
+    private final String cognome;
+    private final String email;
+    private final int telefono;
     private long id;
+    private String user;
+    private String pass;
 
     public EntityCliente(String nome, String cognome, String email, int telefono) {
         this.nome = nome;
@@ -14,6 +16,11 @@ public class EntityCliente {
         this.email = email;
         this.telefono = telefono;
         this.id = -1;
+    }
+
+    public void registrazione(String user, String pass){
+        this.user = user;
+        this.pass = pass;
     }
 
     public String getNome() {
@@ -38,6 +45,18 @@ public class EntityCliente {
 
     public void setId(long id){
         this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPass() {
+        return pass;
     }
     
 }
