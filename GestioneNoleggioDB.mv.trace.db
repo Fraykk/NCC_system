@@ -1,0 +1,1215 @@
+2025-06-06 13:11:50.613975+02:00 jdbc[4]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
+2025-06-06 16:20:49.632233+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at application.prova.main(prova.java:11)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 12 more
+2025-06-06 16:31:36.823560+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at application.prova.main(prova.java:11)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 12 more
+2025-06-06 16:31:56.768536+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at application.prova.main(prova.java:11)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 12 more
+2025-06-06 16:36:43.545473+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "20202020"; SQL statement:
+INSERT INTO PREVENTIVO (IDPREVENTIVO, PARTENZA, DESTINAZIONE, DATAPRELIEVO) VALUES (?, ?, ?, ?) [22007-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:518)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:88)
+	at org.h2.value.Value.convertToTimestamp(Value.java:2006)
+	at org.h2.value.Value.convertTo(Value.java:1179)
+	at org.h2.value.Value.convertForAssignTo(Value.java:1118)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:406)
+	at org.h2.table.Table.convertInsertRow(Table.java:963)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:167)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:213)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:172)
+	at database.PreventivoDAO.inserisciPreventivo(PreventivoDAO.java:24)
+	at entity.EntityPreventivo.creaPreventivo(EntityPreventivo.java:37)
+	at control.GestioneNoleggio.main(GestioneNoleggio.java:42)
+Caused by: java.lang.IllegalArgumentException: 2020-20-20
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:194)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:338)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:86)
+	... 16 more
+2025-06-06 16:41:04.414310+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.PreventivoDAO.inserisciPreventivo(PreventivoDAO.java:12)
+	at entity.EntityPreventivo.creaPreventivo(EntityPreventivo.java:37)
+	at control.GestioneNoleggio.main(GestioneNoleggio.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2025-06-06 16:41:26.594506+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "120899"; SQL statement:
+INSERT INTO PREVENTIVO (IDPREVENTIVO, PARTENZA, DESTINAZIONE, DATAPRELIEVO) VALUES (?, ?, ?, ?) [22007-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:518)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:88)
+	at org.h2.value.Value.convertToTimestamp(Value.java:2006)
+	at org.h2.value.Value.convertTo(Value.java:1179)
+	at org.h2.value.Value.convertForAssignTo(Value.java:1118)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:406)
+	at org.h2.table.Table.convertInsertRow(Table.java:963)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:167)
+	at org.h2.command.dml.Insert.update(Insert.java:135)
+	at org.h2.command.dml.DataChangeStatement.update(DataChangeStatement.java:74)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:213)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:172)
+	at database.PreventivoDAO.inserisciPreventivo(PreventivoDAO.java:24)
+	at entity.EntityPreventivo.creaPreventivo(EntityPreventivo.java:37)
+	at control.GestioneNoleggio.main(GestioneNoleggio.java:42)
+Caused by: java.lang.IllegalArgumentException: 120899
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:187)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:338)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:86)
+	... 16 more
+2025-06-06 16:43:20.323269+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "PREVENTIVO" because "CONSTRAINT_FB7" depends on it; SQL statement:
+DROP TABLE IF EXISTS PREVENTIVO [90107-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-06-06 16:43:39.599193+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "PREVENTIVO" because "CONSTRAINT_FB7" depends on it; SQL statement:
+DROP TABLE PREVENTIVO [90107-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-06-07 16:45:16.810807+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CLIENTE" because "CONSTRAINT_957, CONSTRAINT_FB74" depends on it; SQL statement:
+DROP TABLE IF EXISTS CLIENTE [90107-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-06-07 16:48:03.912889+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "CLIENTE" because "CONSTRAINT_957, CONSTRAINT_FB74" depends on it; SQL statement:
+DROP TABLE IF EXISTS CLIENTE [90107-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:108)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:133)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-06-07 16:50:25.038947+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS cliente (\000d\000a\000d\000a    idcliente IDENTITY PRIMARY KEY,\000d\000a\000d\000a    nome VARCHAR(255) NOT NULL,\000d\000a\000d\000a    cognome VARCHAR(255) NOT NULL,\000d\000a\000d\000a    email VARCHAR(255) NOT NULL,\000d\000a\000d\000a    telefono INTEGER[*](10) NOT NULL"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS cliente (
+
+    idcliente IDENTITY PRIMARY KEY,
+
+    nome VARCHAR(255) NOT NULL,
+
+    cognome VARCHAR(255) NOT NULL,
+
+    email VARCHAR(255) NOT NULL,
+
+    telefono INTEGER(10) NOT NULL [42001-232]
+2025-06-07 16:51:10.067122+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS cliente (\000d\000a\000d\000a    idcliente IDENTITY PRIMARY KEY, -- Questo è il modo migliore per H2\000d\000a\000d\000a    nome VARCHAR(255) NOT NULL,\000d\000a\000d\000a    cognome VARCHAR(255) NOT NULL,\000d\000a\000d\000a    email VARCHAR(255) UNIQUE,\000d\000a\000d\000a    telefono INTEGER[*](10) UNIQUE\000d\000a\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS cliente (
+
+    idcliente IDENTITY PRIMARY KEY, -- Questo è il modo migliore per H2
+
+    nome VARCHAR(255) NOT NULL,
+
+    cognome VARCHAR(255) NOT NULL,
+
+    email VARCHAR(255) UNIQUE,
+
+    telefono INTEGER(10) UNIQUE
+
+) [42001-232]
+2025-06-07 16:51:22.523360+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS CLIENTE (\000d\000a\000d\000a    idcliente IDENTITY PRIMARY KEY, \000d\000a\000d\000a    nome VARCHAR(255) NOT NULL,\000d\000a\000d\000a    cognome VARCHAR(255) NOT NULL,\000d\000a\000d\000a    email VARCHAR(255) UNIQUE,\000d\000a\000d\000a    telefono INTEGER[*](10) UNIQUE\000d\000a\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS CLIENTE (
+
+    idcliente IDENTITY PRIMARY KEY, 
+
+    nome VARCHAR(255) NOT NULL,
+
+    cognome VARCHAR(255) NOT NULL,
+
+    email VARCHAR(255) UNIQUE,
+
+    telefono INTEGER(10) UNIQUE
+
+) [42001-232]
+2025-06-07 16:51:49.155566+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS CLIENTE (\000d\000a\000d\000a    IDCLIENTE IDENTITY PRIMARY KEY, \000d\000a\000d\000a    NOME VARCHAR(255) NOT NULL,\000d\000a\000d\000a    COGNOME VARCHAR(255) NOT NULL,\000d\000a\000d\000a    EMAIL VARCHAR(255) UNIQUE,\000d\000a\000d\000a    TELEFONO INTEGER[*](10) UNIQUE\000d\000a\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS CLIENTE (
+
+    IDCLIENTE IDENTITY PRIMARY KEY, 
+
+    NOME VARCHAR(255) NOT NULL,
+
+    COGNOME VARCHAR(255) NOT NULL,
+
+    EMAIL VARCHAR(255) UNIQUE,
+
+    TELEFONO INTEGER(10) UNIQUE
+
+) [42001-232]
+2025-06-07 16:52:08.205508+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS CLIENTE (\000d\000a    IDCLIENTE IDENTITY PRIMARY KEY, \000d\000a    NOME VARCHAR(255) NOT NULL,\000d\000a    COGNOME VARCHAR(255) NOT NULL,\000d\000a    EMAIL VARCHAR(255) UNIQUE,\000d\000a    TELEFONO INT[*](10) UNIQUE\000d\000a)"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS CLIENTE (
+    IDCLIENTE IDENTITY PRIMARY KEY, 
+    NOME VARCHAR(255) NOT NULL,
+    COGNOME VARCHAR(255) NOT NULL,
+    EMAIL VARCHAR(255) UNIQUE,
+    TELEFONO INT(10) UNIQUE
+) [42001-232]
+2025-06-07 17:29:50.247507+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.ClienteDAO.inserisciCliente(ClienteDAO.java:14)
+	at control.GestioneNoleggio.aggiungiPreventivo(GestioneNoleggio.java:37)
+	at boundary.BoundaryCliente.menuCliente(BoundaryCliente.java:133)
+	at control.GestioneNoleggio.main(GestioneNoleggio.java:26)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2025-06-07 17:31:41.950587+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.ClienteDAO.inserisciCliente(ClienteDAO.java:14)
+	at control.GestioneNoleggio.aggiungiPreventivo(GestioneNoleggio.java:37)
+	at boundary.BoundaryCliente.menuCliente(BoundaryCliente.java:133)
+	at control.GestioneNoleggio.main(GestioneNoleggio.java:26)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2025-06-07 17:32:42.908321+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO PREVENTIVO (PARTENZA, DESTINAZIONE, DATA, ORA, IDCLIENTE) VALUES (?, ?, ?, ?) [21002-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:294)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
+	at database.PreventivoDAO.inserisciPreventivo(PreventivoDAO.java:17)
+	at control.GestioneNoleggio.aggiungiPreventivo(GestioneNoleggio.java:41)
+	at boundary.BoundaryCliente.menuCliente(BoundaryCliente.java:133)
+	at control.GestioneNoleggio.main(GestioneNoleggio.java:26)
+2025-06-07 17:33:41.885612+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SHOW [*]* FROM CLIENTE"; SQL statement:
+SHOW * FROM CLIENTE [42000-232]
+2025-06-07 17:54:21.698602+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM CLIENTE\000d\000a[*]SELECT * FROM PREVENTIVO"; SQL statement:
+SELECT * FROM CLIENTE
+SELECT * FROM PREVENTIVO [42000-232]
+2025-06-07 18:08:59.821918+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.ClienteDAO.inserisciCliente(ClienteDAO.java:14)
+	at control.GestioneNoleggio.aggiungiPreventivo(GestioneNoleggio.java:38)
+	at boundary.BoundaryCliente.menuCliente(BoundaryCliente.java:133)
+	at control.GestioneNoleggio.main(GestioneNoleggio.java:26)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2025-06-08 18:25:32.341789+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE AUTOVETTURA[*]"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE AUTOVETTURA [42001-232]
+2025-06-08 19:04:53.725065+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO PREVENTIVO (COSTO) VALUES (?) [*]WHERE IDPREVENTIVO = ?"; SQL statement:
+INSERT INTO PREVENTIVO (COSTO) VALUES (?) WHERE IDPREVENTIVO = ? [42000-232]
+2025-06-08 19:34:32.183241+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No data is available [2000-232]
+2025-06-08 19:41:36.101592+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "lucsagg@gmail.com" [22018-232]
+2025-06-08 19:42:56.402804+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "lucsagg@gmail.com" [22018-232]
+2025-06-08 19:44:30.065921+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "lucsagg@gmail.com" [22018-232]
+2025-06-11 22:27:15.895348+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.PrenotazioneDAO.leggiPrenotazioni(PrenotazioneDAO.java:16)
+	at control.GestioneNoleggio.ottieniPrenotazioni(GestioneNoleggio.java:71)
+	at boundary.BoundaryImpiegato.scegliPrenotazione(BoundaryImpiegato.java:154)
+	at boundary.BoundaryImpiegato.menuImpiegato(BoundaryImpiegato.java:42)
+	at boundary.MainMenu.main(MainMenu.java:28)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+2025-06-11 22:27:48.745746+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.PrenotazioneDAO.leggiPrenotazioni(PrenotazioneDAO.java:16)
+	at control.GestioneNoleggio.ottieniPrenotazioni(GestioneNoleggio.java:71)
+	at boundary.BoundaryImpiegato.scegliPrenotazione(BoundaryImpiegato.java:154)
+	at boundary.BoundaryImpiegato.menuImpiegato(BoundaryImpiegato.java:42)
+	at boundary.MainMenu.main(MainMenu.java:28)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+2025-06-11 22:29:08.210249+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.PrenotazioneDAO.leggiPrenotazioni(PrenotazioneDAO.java:16)
+	at control.GestioneNoleggio.ottieniPrenotazioni(GestioneNoleggio.java:71)
+	at boundary.BoundaryImpiegato.scegliPrenotazione(BoundaryImpiegato.java:154)
+	at boundary.BoundaryImpiegato.menuImpiegato(BoundaryImpiegato.java:42)
+	at boundary.MainMenu.main(MainMenu.java:28)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+2025-06-11 22:34:28.022052+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.PrenotazioneDAO.leggiPrenotazioni(PrenotazioneDAO.java:16)
+	at control.GestioneNoleggio.ottieniPrenotazioni(GestioneNoleggio.java:71)
+	at boundary.BoundaryImpiegato.scegliPrenotazione(BoundaryImpiegato.java:154)
+	at boundary.BoundaryImpiegato.menuImpiegato(BoundaryImpiegato.java:42)
+	at boundary.MainMenu.main(MainMenu.java:28)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+2025-06-11 22:34:58.133615+02:00 database: flush
+org.h2.message.DbException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:613)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:199)
+	at database.DBManager.getConnection(DBManager.java:18)
+	at database.PreventivoDAO.leggiPreventivi(PreventivoDAO.java:58)
+	at control.GestioneNoleggio.ottieniPreventivi(GestioneNoleggio.java:57)
+	at boundary.BoundaryImpiegato.scegliPreventivo(BoundaryImpiegato.java:95)
+	at boundary.BoundaryImpiegato.menuImpiegato(BoundaryImpiegato.java:39)
+	at boundary.MainMenu.main(MainMenu.java:28)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]" [50000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 23 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Francesco/GestioneNoleggioDB.mv.mv.db [2.3.232/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 17 more
+2025-06-11 22:53:14.693334+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:20.946802+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:21.914102+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:22.369152+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:32.266270+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:33.325995+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:33.843115+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:33.963657+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:34.075601+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:34.196279+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:34.291244+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:34.405050+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:53:34.515900+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:56:58.045862+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE
+ [42001-232]
+2025-06-11 22:57:19.009904+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000d\000a                                P.IDPRENOTAZIONE,\000d\000a                                P.DATACONFERMA,\000d\000a                                P.ACCONTO,\000d\000a                                PRE.PARTENZA,\000d\000a                                PRE.DESTINAZIONE,\000d\000a                                PRE.DATA AS DataPreventivo,\000d\000a                                PRE.ORA AS OraPreventivo,\000d\000a                                C.[*]USER AS UserCliente\000d\000a                            FROM\000d\000a                                Prenotazione AS P\000d\000a                            JOIN\000d\000a                                Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000d\000a                            JOIN\000d\000a                                Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE"; expected "identifier"; SQL statement:
+SELECT
+                                P.IDPRENOTAZIONE,
+                                P.DATACONFERMA,
+                                P.ACCONTO,
+                                PRE.PARTENZA,
+                                PRE.DESTINAZIONE,
+                                PRE.DATA AS DataPreventivo,
+                                PRE.ORA AS OraPreventivo,
+                                C.USER AS UserCliente
+                            FROM
+                                Prenotazione AS P
+                            JOIN
+                                Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+                            JOIN
+                                Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE [42001-232]
+2025-06-11 22:58:02.373668+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "C.USER" not found; SQL statement:
+SELECT
+                     P.IDPRENOTAZIONE,
+                     P.DATACONFERMA,
+                     P.ACCONTO,
+                     PRE.PARTENZA,
+                     PRE.DESTINAZIONE,
+                     PRE.DATA AS DataPreventivo,
+                     PRE.ORA AS OraPreventivo,
+                     C."USER" AS UserCliente -- CAMBIATO QUI: C."USER"
+                 FROM
+                     Prenotazione AS P
+                 JOIN
+                     Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+                 JOIN
+                     Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.Alias.optimize(Alias.java:52)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1228)
+	at org.h2.command.query.Query.prepare(Query.java:232)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-06-11 22:58:45.772056+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE Cliente\000d\000aADD COLUMN [*]User VARCHAR(255) UNIQUE"; expected "identifier"; SQL statement:
+ALTER TABLE Cliente
+ADD COLUMN User VARCHAR(255) UNIQUE [42001-232]
+2025-06-11 22:59:03.971796+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE Cliente\000d\000aADD COLUMN [*]User VARCHAR(255) UNIQUE"; expected "identifier"; SQL statement:
+ALTER TABLE Cliente
+ADD COLUMN User VARCHAR(255) UNIQUE [42001-232]
+2025-06-11 22:59:37.114767+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE Cliente\000d\000aADD COLUMN [*]User VARCHAR(255) UNIQUE"; expected "identifier"; SQL statement:
+ALTER TABLE Cliente
+ADD COLUMN User VARCHAR(255) UNIQUE [42001-232]
+2025-06-11 22:59:41.022304+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE CLIENTE\000d\000aADD COLUMN [*]User VARCHAR(255) UNIQUE"; expected "identifier"; SQL statement:
+ALTER TABLE CLIENTE
+ADD COLUMN User VARCHAR(255) UNIQUE [42001-232]
+2025-06-11 23:00:53.066688+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000d\000a                                P.IDPRENOTAZIONE,\000d\000a                                P.DATACONFERMA,\000d\000a                                P.ACCONTO,\000d\000a                                PRE.PARTENZA,\000d\000a                                PRE.DESTINAZIONE,\000d\000a                                PRE.DATA AS DataPreventivo,\000d\000a                                PRE.ORA AS OraPreventivo,\000d\000a                                C.[*]USER AS UserCliente\000d\000a                            FROM\000d\000a                                Prenotazione AS P\000d\000a                            JOIN\000d\000a                                Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000d\000a                            JOIN\000d\000a                                Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE"; expected "identifier"; SQL statement:
+SELECT
+                                P.IDPRENOTAZIONE,
+                                P.DATACONFERMA,
+                                P.ACCONTO,
+                                PRE.PARTENZA,
+                                PRE.DESTINAZIONE,
+                                PRE.DATA AS DataPreventivo,
+                                PRE.ORA AS OraPreventivo,
+                                C.USER AS UserCliente
+                            FROM
+                                Prenotazione AS P
+                            JOIN
+                                Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+                            JOIN
+                                Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE [42001-232]
+2025-06-11 23:01:03.961687+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "C.USER" not found; SQL statement:
+SELECT
+                     P.IDPRENOTAZIONE,
+                     P.DATACONFERMA,
+                     P.ACCONTO,
+                     PRE.PARTENZA,
+                     PRE.DESTINAZIONE,
+                     PRE.DATA AS DataPreventivo,
+                     PRE.ORA AS OraPreventivo,
+                     C."USER" AS UserCliente -- CAMBIATO QUI: C."USER"
+                 FROM
+                     Prenotazione AS P
+                 JOIN
+                     Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+                 JOIN
+                     Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.Alias.optimize(Alias.java:52)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1228)
+	at org.h2.command.query.Query.prepare(Query.java:232)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-06-11 23:01:17.400801+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "C.user" not found; SQL statement:
+SELECT
+                     P.IDPRENOTAZIONE,
+                     P.DATACONFERMA,
+                     P.ACCONTO,
+                     PRE.PARTENZA,
+                     PRE.DESTINAZIONE,
+                     PRE.DATA AS DataPreventivo,
+                     PRE.ORA AS OraPreventivo,
+                     C."user" AS UserCliente -- CAMBIATO QUI: C."USER"
+                 FROM
+                     Prenotazione AS P
+                 JOIN
+                     Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+                 JOIN
+                     Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.Alias.optimize(Alias.java:52)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1228)
+	at org.h2.command.query.Query.prepare(Query.java:232)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+2025-06-11 23:02:01.824797+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE Cliente\000d\000aRENAME COLUMN ""User"" TO [*]USER"; expected "identifier"; SQL statement:
+ALTER TABLE Cliente
+RENAME COLUMN "User" TO USER [42001-232]
+2025-06-11 23:02:27.036614+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000d\000a    P.IDPRENOTAZIONE,\000d\000a    P.DATACONFERMA,\000d\000a    P.ACCONTO,\000d\000a    PRE.PARTENZA,\000d\000a    PRE.DESTINAZIONE,\000d\000a    PRE.DATA AS DataPreventivo,\000d\000a    PRE.ORA AS OraPreventivo,\000d\000a    C.[*]USER AS UserCliente -- Ora è C.USER (senza doppi apici)\000d\000aFROM\000d\000a    Prenotazione AS P\000d\000aJOIN\000d\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000d\000aJOIN\000d\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente -- Ora è C.USER (senza doppi apici)
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE [42001-232]
+2025-06-11 23:03:14.060306+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000a    P.IDPRENOTAZIONE,\000a    P.DATACONFERMA,\000a    P.ACCONTO,\000a    PRE.PARTENZA,\000a    PRE.DESTINAZIONE,\000a    PRE.DATA AS DataPreventivo,\000a    PRE.ORA AS OraPreventivo,\000a    C.[*]USER AS UserCliente -- Ora è C.USER (senza doppi apici)\000aFROM\000a    Prenotazione AS P\000aJOIN\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000aJOIN\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE;\000a"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente -- Ora è C.USER (senza doppi apici)
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE;
+ [42001-232]
+2025-06-11 23:03:28.671016+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT\000d\000a    P.IDPRENOTAZIONE,\000d\000a    P.DATACONFERMA,\000d\000a    P.ACCONTO,\000d\000a    PRE.PARTENZA,\000d\000a    PRE.DESTINAZIONE,\000d\000a    PRE.DATA AS DataPreventivo,\000d\000a    PRE.ORA AS OraPreventivo,\000d\000a    C.[*]USER AS UserCliente -- Ora è C.USER (senza doppi apici)\000d\000aFROM\000d\000a    Prenotazione AS P\000d\000aJOIN\000d\000a    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO\000d\000aJOIN\000d\000a    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE"; expected "identifier"; SQL statement:
+SELECT
+    P.IDPRENOTAZIONE,
+    P.DATACONFERMA,
+    P.ACCONTO,
+    PRE.PARTENZA,
+    PRE.DESTINAZIONE,
+    PRE.DATA AS DataPreventivo,
+    PRE.ORA AS OraPreventivo,
+    C.USER AS UserCliente -- Ora è C.USER (senza doppi apici)
+FROM
+    Prenotazione AS P
+JOIN
+    Preventivo AS PRE ON P.IDPREVENTIVO = PRE.IDPREVENTIVO
+JOIN
+    Cliente AS C ON P.IDCLIENTE = C.IDCLIENTE [42001-232]
+2025-06-11 23:04:19.367531+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM PRENOTAZIONE\000d\000a[*]SELECT * FROM PREVENTIVO"; SQL statement:
+SELECT * FROM PRENOTAZIONE
+SELECT * FROM PREVENTIVO [42000-232]
+2025-06-11 23:32:13.463333+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "TARGA" not found; SQL statement:
+UPDATE PRENOTAZIONE SET IDCONDUCENTE = (?) WHERE TARGA = (?) [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.dml.Update.doPrepare(Update.java:125)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1092)
+	at database.PrenotazioneDAO.setAutovettura(PrenotazioneDAO.java:91)
+	at control.GestioneNoleggio.associaAutovettura(GestioneNoleggio.java:163)
+	at boundary.BoundaryImpiegato.assegnaDatiNoleggio(BoundaryImpiegato.java:290)
+	at boundary.BoundaryImpiegato.scegliPrenotazione(BoundaryImpiegato.java:194)
+	at boundary.BoundaryImpiegato.menuImpiegato(BoundaryImpiegato.java:42)
+	at boundary.MainMenu.main(MainMenu.java:28)
+2025-06-11 23:36:05.520661+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "TARGA" not found; SQL statement:
+UPDATE PRENOTAZIONE SET IDCONDUCENTE = (?) WHERE TARGA = (?) [42122-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:147)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.dml.Update.doPrepare(Update.java:125)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:1092)
+	at database.PrenotazioneDAO.setAutovettura(PrenotazioneDAO.java:91)
+	at control.GestioneNoleggio.associaAutovettura(GestioneNoleggio.java:163)
+	at boundary.BoundaryImpiegato.assegnaDatiNoleggio(BoundaryImpiegato.java:290)
+	at boundary.BoundaryImpiegato.scegliPrenotazione(BoundaryImpiegato.java:194)
+	at boundary.BoundaryImpiegato.menuImpiegato(BoundaryImpiegato.java:42)
+	at boundary.MainMenu.main(MainMenu.java:28)
+2025-06-11 23:37:48.212150+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'AB123CD' (PRENOTAZIONE: ""IDAUTOVETTURA"" BIGINT)"; SQL statement:
+UPDATE PRENOTAZIONE SET IDAUTOVETTURA = (?) WHERE IDPRENOTAZIONE = (?) [22018-232]
+2025-06-11 23:38:53.844914+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'AB123CD' (PRENOTAZIONE: ""IDAUTOVETTURA"" BIGINT)"; SQL statement:
+UPDATE PRENOTAZIONE SET IDAUTOVETTURA = (?) WHERE IDPRENOTAZIONE = (?) [22018-232]
