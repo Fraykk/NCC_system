@@ -1,14 +1,11 @@
 package database;
 
+import exception.DAOException;
+import exception.DBConnectionException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-
-import entity.EntityPreventivo;
-import exception.DAOException;
-import exception.DBConnectionException;
 
 public class AutovetturaDAO {
     public static boolean isDisponibile() throws DAOException, DBConnectionException{
@@ -30,7 +27,7 @@ public class AutovetturaDAO {
 
 
             }catch(SQLException e) {
-                throw new DAOException("Errore aggiunta preventivo al database");
+                throw new DAOException("Errore di lettura sul database");
             } finally {
                 DBManager.closeConnection();
             }

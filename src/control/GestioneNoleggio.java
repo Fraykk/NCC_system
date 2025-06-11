@@ -1,10 +1,8 @@
 package control;
 
-import boundary.BoundaryImpiegato;
-import boundary.BoundaryCliente;
+import database.AutovetturaDAO;
 import database.ClienteDAO;
 import database.PreventivoDAO;
-import database.AutovetturaDAO;
 import entity.EntityCliente;
 import entity.EntityPreventivo;
 import exception.DAOException;
@@ -23,11 +21,6 @@ public class GestioneNoleggio {
             gN = new GestioneNoleggio();
 
         return gN;
-    }
-
-    public static void main(){
-        //BoundaryCliente.menuCliente();
-        BoundaryImpiegato.menuImpiegato();
     }
 
     public void aggiungiPreventivo( String partenza, String destinazione, Date data, Time ora, String nome, String cognome, String email, int telefono) throws OperationException{
@@ -50,8 +43,6 @@ public class GestioneNoleggio {
 		}catch(DAOException ex) {
 			throw new OperationException("Ops, qualcosa e' andato storto..");
 		}
-        
-
     }
 
     public List<EntityPreventivo> ottieniPreventivi() throws OperationException{
@@ -104,5 +95,9 @@ public class GestioneNoleggio {
 		}
 
         eP.setCliente(eC);
+    }
+
+    public void inviaAlternative(){
+        System.out.println("Invio alternative via mail");
     }
 }

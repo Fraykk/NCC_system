@@ -71,7 +71,7 @@ public class PreventivoDAO {
                 }
 
             }catch(SQLException e) {
-                throw new DAOException("Errore aggiunta preventivo al database");
+                throw new DAOException("Errore lettura preventivo dal database");
             } finally {
                 DBManager.closeConnection();
             }
@@ -98,7 +98,7 @@ public class PreventivoDAO {
                 System.out.println("Costo aggiunto correttamente");
                 
             }catch(SQLException e) {
-                throw new DAOException("Errore aggiunta preventivo al database");
+                throw new DAOException("Errore aggiunta costo preventivo al database");
             } finally {
                 DBManager.closeConnection();
             }

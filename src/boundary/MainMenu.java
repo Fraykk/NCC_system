@@ -1,75 +1,50 @@
 package boundary;
 
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.util.Scanner;
 
 public class MainMenu {
+	// gestico l'istanza dello scanner direttamente nel main
+	public static Scanner scanner = new Scanner(System.in);
 
-	static JFrame frame;
+    public static void main(String[] args) {
+        int scelta;
+        boolean running = true;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainMenu window = new MainMenu();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+        System.out.println("Benvenuto nell'applicazione di gestione noleggi!");
 
-	/**
-	 * Create the application.
-	 */
-	public MainMenu() {
-		initialize();
-	}
+        while (running) {
+            System.out.println("\n--- Menu Principale ---");
+            System.out.println("1. Accedi come Cliente");
+            System.out.println("2. Accedi come Impiegato");
+            System.out.println("3. Esci dall'applicazione");
+            System.out.print("Scegli un'opzione: ");
 
-    private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JLabel lblMultiscreen = new JLabel("MultiScreen");
-		lblMultiscreen.setForeground(Color.RED);
-		lblMultiscreen.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
-		lblMultiscreen.setBounds(138, 6, 183, 64);
-		frame.getContentPane().add(lblMultiscreen);
-		
-		JButton btnAcquistaBiglietto = new JButton("Acquista Biglietto");
-		btnAcquistaBiglietto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				try {
-					Gui window = new Gui();
-					window.frame.setVisible(true);
-					frame.setVisible(false);
-				} catch (Exception exc) {
-					System.out.println("Errore nella creazione della finestra");
-					//exc.printStackTrace();
-				}
-			}
-		});
-		btnAcquistaBiglietto.setBounds(96, 187, 270, 29);
-		frame.getContentPane().add(btnAcquistaBiglietto);
-		
-		JButton btnRicercaFilm = new JButton("Ricerca film");
-		btnRicercaFilm.setBounds(96, 83, 270, 29);
-		frame.getContentPane().add(btnRicercaFilm);
-		
-		JButton btnVisualizzaProgrammazioneMensile = new JButton("Visualizza programmazione mensile");
-		btnVisualizzaProgrammazioneMensile.setBounds(96, 134, 270, 29);
-		frame.getContentPane().add(btnVisualizzaProgrammazioneMensile);
-	}
+            try {
+                scelta = Integer.parseInt(scanner.nextLine());
+
+                switch (scelta) {
+                    case 1:
+                        BoundaryCliente.menuCliente();
+                        break;
+                    case 2:
+                        BoundaryImpiegato.menuImpiegato();
+                        break;
+                    case 3:
+                        running = false;
+                        System.out.println("Uscita dall'applicazione. Arrivederci!");
+                        break;
+                    default:
+                        System.out.println("Scelta non valida. Per favore, inserisci un numero tra 1 e 3.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Input non valido. Per favore, inserisci un numero intero.");
+            }
+        }
+
+        // gestico la chiusura dello scanner prima di chiudere l'app
+        if (scanner != null) {
+            scanner.close();
+            System.out.println("Risorse liberate: Scanner chiuso.");
+        }
+    }
 }

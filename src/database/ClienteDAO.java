@@ -83,7 +83,7 @@ public class ClienteDAO {
                 }
 
             }catch(SQLException e) {
-                throw new DAOException("Errore aggiunta preventivo al database");
+                throw new DAOException("Errore lettura dal database");
             } finally {
                 DBManager.closeConnection();
             }
