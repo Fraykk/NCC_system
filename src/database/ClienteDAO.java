@@ -57,7 +57,7 @@ public class ClienteDAO {
             Connection conn = DBManager.getConnection();
 
             String query1 = "SELECT IDCLIENTE FROM PREVENTIVO WHERE IDPREVENTIVO = ?";
-            String query2 = "SELECT * FROM CLIENTE WHERE IDCLIENTE = ?";
+            String query2 = "SELECT NOME, COGNOME, EMAIL, TELEFONO FROM CLIENTE WHERE IDCLIENTE = ?";
 
             try{
                 PreparedStatement stmt1 = conn.prepareStatement(query1);
@@ -77,7 +77,7 @@ public class ClienteDAO {
                 ResultSet resultCliente = stmt2.executeQuery();
                 
                 if (resultCliente.next()){
-                    eC = new EntityCliente(resultCliente.getString(2), resultCliente.getString(3), resultCliente.getString(4), resultCliente.getInt(5));
+                    eC = new EntityCliente(resultCliente.getString(1), resultCliente.getString(2), resultCliente.getString(3), resultCliente.getInt(4));
                 }else{
                     throw new DAOException("Cliente non trovato con ID: " + idCliente);
                 }

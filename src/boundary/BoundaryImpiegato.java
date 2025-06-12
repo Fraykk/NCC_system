@@ -253,12 +253,13 @@ public class BoundaryImpiegato {
 
             List<EntityConducente> listC = gN.ottieniConducenti();
 
-            System.out.printf("%-10s %-15s%n",
-                "Nome", "Cognome");
+            System.out.printf("%-10s %-15s %-15s%n",
+                "ID", "Nome", "Cognome");
             System.out.println("------------------------------------------------------------------");
 
             for (EntityConducente eC : listC) {
-                System.out.printf("%-15s %-15s%n",
+                System.out.printf("%-10s %-15s %-15s%n",
+                                eC.getId(),
                                 eC.getNome(),
                                 eC.getCognome()
                                 );

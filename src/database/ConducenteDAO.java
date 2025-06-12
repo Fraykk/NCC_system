@@ -47,7 +47,7 @@ public class ConducenteDAO {
         try { 
             Connection conn = DBManager.getConnection();
 
-            String query = "SELECT * FROM CONDUCENTE WHERE DISPONIBILE = TRUE";
+            String query = "SELECT IDCONDUCENTE, NOME, COGNOME FROM CONDUCENTE WHERE DISPONIBILE = TRUE";
 
             try{
                 PreparedStatement stmt = conn.prepareStatement(query);

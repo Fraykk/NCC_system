@@ -57,7 +57,7 @@ public class PreventivoDAO {
         try { 
             Connection conn = DBManager.getConnection();
 
-            String query = "SELECT * FROM PREVENTIVO";
+            String query = "SELECT IDPREVENTIVO, PARTENZA, DESTINAZIONE, DATA, ORA FROM PREVENTIVO";
 
             try{
                 PreparedStatement stmt = conn.prepareStatement(query);

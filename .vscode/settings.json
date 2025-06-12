@@ -1,4 +1,6 @@
     {
+        "java.project.sourcePaths": ["src"],
+        "java.project.test.sourcePaths": ["test"],
         "java.project.referencedLibraries": [
             "lib/**/*.jar",
             "h2-2.3.232.jar"

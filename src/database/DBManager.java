@@ -21,7 +21,6 @@ private static Connection conn = null;
         return conn;
     }
 	
-	
 	public static void closeConnection() throws SQLException {
 		
 			if(conn != null) {
